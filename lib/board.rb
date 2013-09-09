@@ -11,11 +11,11 @@ class Board
   end
 
   def rows
-    [1,2,3,4,5,6,7,8,9,10]
+    rows = Array.new(10) { Array.new(10, '') }
   end
 
   def columns
-    (0..9).to_a
+    rows.transpose
   end
  
 end

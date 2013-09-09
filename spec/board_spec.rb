@@ -27,6 +27,15 @@ describe Board do
     expect(board.columns.count).to eq 10
   end
 
-  it 'should have 100 squares'
+  it 'should have 10 items in each row' do
+    board = Board.new('Devil')
+    expect(board.rows.all? { |row| row.count == 10 }).to be_true
+  end
+
+  it 'should start with 100 empty sqaures' do
+    board = Board.new('Jesus')
+    # expect that all of the squares in all of the rows are empty strings
+    expect(board.rows.all? { |row| row.all? { |square| square == '' } }).to be_true
+  end
 
 end
