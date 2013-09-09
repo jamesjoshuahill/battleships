@@ -1,6 +1,7 @@
 require 'board'
 
 describe Board do
+  let(:board) { Board.new('Batman') }
 
   it 'should have a player' do
     board = Board.new('Rose')
@@ -18,24 +19,33 @@ describe Board do
   end
 
   it 'should have 10 rows exactly' do
-    board = Board.new('James')
     expect(board.rows.count).to eq 10
   end
 
   it 'should have 10 columns' do
-    board = Board.new('Julie')
     expect(board.columns.count).to eq 10
   end
 
   it 'should have 10 items in each row' do
-    board = Board.new('Devil')
     expect(board.rows.all? { |row| row.count == 10 }).to be_true
   end
 
   it 'should start with 100 empty sqaures' do
-    board = Board.new('Jesus')
     # expect that all of the squares in all of the rows are empty strings
     expect(board.rows.all? { |row| row.all? { |square| square == '' } }).to be_true
   end
+
+  it 'should be able to find a square from coordinates' do
+    expect(board.at_coordinates('D3')).to eq '' #pass an argument
+  end
+
+  it 'should change a square at coordinates' do
+    board.change_square_at('D3', 'x')
+    expect(board.at_coordinates('D3')).to eq 'x'
+    board.change_square_at('A4', 's')
+    expect(board.at_coordinates('A4')).to eq 's'
+  end
+
+
 
 end
