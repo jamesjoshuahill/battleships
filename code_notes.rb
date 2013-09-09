@@ -16,3 +16,21 @@ attr_reader :player
 def player
   @player      #read saved instance var
 end
+
+
+
+it 'should not change a square with a hit or miss' do
+  board.change_square_at('A1','x')
+  expect {
+    board.change_square_at('A1','o')
+  }.to raise_error(ArgumentError, 'Only allowed to change water or ships.')
+end
+
+def change_square_at(location, value)
+  # ...
+  # ...
+  Check that current value is not a hit or miss
+  current_value = @rows[row][column]
+  raise ArgumentError.new('Only allowed to change water or ships.') if current_value == 'x' or current_value == 'o'
+  # ...
+end
