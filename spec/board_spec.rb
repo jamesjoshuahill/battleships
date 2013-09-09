@@ -1,6 +1,7 @@
 require 'board'
 
-describe Board do   
+describe Board do
+
   it 'should have a player' do
     board = Board.new('Rose')
     expect(board.player).to eq 'Rose'
@@ -16,5 +17,16 @@ describe Board do
     expect(board.owner).to eq 'Billy'
   end
 
+  it 'should have 10 rows exactly' do
+    board = Board.new('James')
+    expect(board.rows.count).to eq 10
+  end
+
+  it 'should have 10 columns' do
+    board = Board.new('Julie')
+    expect(board.columns.count).to eq 10
+  end
+
+  it 'should have 100 squares'
 
 end
