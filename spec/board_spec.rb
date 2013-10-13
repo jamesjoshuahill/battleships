@@ -1,16 +1,18 @@
 require 'board'
 
 describe Board do
+
   let(:board) { Board.new('Batman') }
 
   it 'should have a player' do
     board = Board.new('Rose')
     expect(board.player).to eq 'Rose'
+
     board = Board.new('Bob')
     expect(board.player).to eq 'Bob'
   end
 
-  it 'should know it\'s player\'s name' do
+  it "should know it's player's name" do
     player = double :player_class
     board = Board.new(player)
     expect(player).to receive(:name).and_return('Billy')
@@ -42,10 +44,9 @@ describe Board do
   it 'should change a square at coordinates' do
     board.change_square_at('D3', 'x')
     expect(board.at_coordinates('D3')).to eq 'x'
+
     board.change_square_at('A4', 's')
     expect(board.at_coordinates('A4')).to eq 's'
   end
-
-
 
 end

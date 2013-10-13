@@ -3,7 +3,7 @@ class Board
   attr_reader :player, :rows
 
   def initialize (player)
-    @player = player #saving argument in instance var
+    @player = player
     @rows = Array.new(10) { Array.new(10, '') }
   end
 
@@ -16,13 +16,11 @@ class Board
   end
 
   def at_coordinates(location)
-    # take location like 'D3' and look up the corresponding element in the arrays
     index_of = row_and_column_for(location)
     @rows[index_of[:row]][index_of[:column]]
   end
 
   def change_square_at(location, value)
-    # set value of the corresponding element in the arrays
     index_of = row_and_column_for(location)
     @rows[index_of[:row]][index_of[:column]] = value
   end

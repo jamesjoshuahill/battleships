@@ -1,8 +1,5 @@
-# Initialize a new player with her/his name.
-# 
-# You will have to create a board in there and randomize the
-# positioning of your ship on the board.
 class Player
+
 	attr_reader :name, :board
 
 	def initialize name, board
@@ -20,15 +17,13 @@ class Player
 	end
 
 	def ship_units_available
-		20
 		#placeholder
+		20
 	end
 
 	def ship_units_hit
-		19
 		#placeholder
+		19
 	end
-
-
 
 end
